@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux'
-import items from './items'
+import squares from './squares'
 
 export default combineReducers({
-  items
+  squares
 })

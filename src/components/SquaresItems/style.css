@@ -1,0 +1,13 @@
+.clear-fix:before,
+.clear-fix:after{
+  display: block;
+  content: "";
+  clear: both;
+}
+.squares-items{
+  height: 100px;
+  width: 100px;
+  float: left;
+  color: white;
+  text-align: center;
+}
