@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types'
 import Loader from '../Loader'
 import {connect} from 'react-redux';
 import {mapToArr} from '../../helpers'
@@ -7,9 +8,14 @@ import './style.css'
 
 class SquaresItems extends Component{
 
-  render(){
+  static propTypes = {
+    //from ownProps
+    handleUpdateForm: PropTypes.func.isRequired,
+    //from connect
+    squares: PropTypes.array.isRequired
+  };
 
-    console.warn('SquaresItems render');
+  render(){
 
     const {squares} = this.props;
 
@@ -24,7 +30,7 @@ class SquaresItems extends Component{
           style={{backgroundColor: color}}
           onClick={this.getItem(item)}
         >
-          {title}
+          {this.truncateString(title)}
         </div>
       )
     });
@@ -38,6 +44,12 @@ class SquaresItems extends Component{
   }
 
   getItem = id => () => this.props.handleUpdateForm(id);
+
+  truncateString(str, num = 55) {
+    return (str.length > num)
+      ? str.slice(0, ((num > 3) ? num -= 3 : num)) + '...'
+      : str;
+  }
 
 }
 

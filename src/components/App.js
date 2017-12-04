@@ -16,7 +16,6 @@ class App extends Component {
   )
 
   render(){
-    console.warn('App render');
     return [
       <SquaresItems
         key="SquaresItems"

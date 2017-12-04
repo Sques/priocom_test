@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types'
 import {connect} from 'react-redux';
 import {updateSquare} from '../../AC'
 
@@ -14,12 +15,20 @@ class SquaresUpdateForm extends Component{
 
   state = initialState;
 
+  static propTypes = {
+    //from ownProps
+    item: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      color: PropTypes.string.isRequired
+    }),
+  };
+
   componentWillReceiveProps({item : {id, title, color}}){
     this.setState({id, title, color});
   }
 
   render(){
-    console.warn('SquaresUpdateForm render');
     const {id, title, color} = this.state;
     if (!id) return <div>Click on item, to change it</div>
     return (

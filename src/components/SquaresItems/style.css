@@ -5,9 +5,11 @@
   clear: both;
 }
 .squares-items{
-  height: 100px;
-  width: 100px;
+  height: 90px;
+  width: 90px;
+  padding: 5px;
   float: left;
   color: white;
   text-align: center;
+  overflow: hidden;
 }
